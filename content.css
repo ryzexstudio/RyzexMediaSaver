@@ -1,0 +1,64 @@
+/* TikTok download button; Instagram inline button; X native Share-adjacent action. */
+[data-ryzex-native-download="1"]{cursor:pointer}
+[data-ryzex-native-download="1"]:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+
+
+/* X / Twitter: preserve native Share button geometry. Only the glyph differs. */
+[data-ryzex-x-slot="1"] { flex-shrink:0; }
+[data-ryzex-x-inline="1"] { cursor:pointer; }
+[data-ryzex-x-inline="1"] [dir="ltr"] {
+  transition:color 150ms ease;
+}
+[data-ryzex-x-inline="1"]:hover [dir="ltr"],
+[data-ryzex-x-inline="1"]:focus-visible [dir="ltr"] {
+  color:rgb(0,186,124) !important;
+}
+[data-ryzex-x-inline="1"]:hover svg,
+[data-ryzex-x-inline="1"]:focus-visible svg {
+  color:rgb(0,186,124) !important;
+}
+/* The decorative circular hover layer from the original X share button. */
+[data-ryzex-x-inline="1"]:hover .r-sdzlij,
+[data-ryzex-x-inline="1"]:focus-visible .r-sdzlij {
+  background-color:rgba(0,186,124,.1) !important;
+}
+[data-ryzex-x-inline="1"]:focus-visible { outline:2px solid rgb(0,186,124);outline-offset:2px;border-radius:999px }
+@media(prefers-reduced-motion:reduce) {
+  [data-ryzex-x-inline="1"] [dir="ltr"] { transition:none; }
+}
+
+
+/* X: a little breathing room between the native Share and Ryzex Download icons.
+   Retain the original native button geometry; no scaling or resize. */
+[data-ryzex-x-slot="1"] { margin-inline-start: 10px !important; }
+
+/* X-style hover label. The real Share tooltip is rendered by X's own JS,
+   so our cloned button needs its own visually matching compact label. */
+.ryzex-x-tooltip {
+  position: fixed;
+  z-index: 2147483646;
+  pointer-events: none;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 115ms ease;
+  background: rgb(15, 20, 25);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 7px 9px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  font: 400 13px/1.25 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  white-space: nowrap;
+}
+.ryzex-x-tooltip.shown { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ryzex-x-tooltip { transition: none; }
+}
+
+/* Instagram: inserted between native Repost and Share action slots. */
+[data-ryzex-instagram-inline="1"]{cursor:pointer;flex-shrink:0}
+[data-ryzex-instagram-inline="1"]:focus-visible,[data-ryzex-instagram-inline="1"] [role="button"]:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:6px}
+[data-ryzex-instagram-inline="1"]{display:inline-flex!important;align-items:center;justify-content:center;align-self:center;position:relative!important;inset:auto!important;width:40px;min-width:40px;height:40px;flex:0 0 40px;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+[data-ryzex-instagram-inline="1"]>.ryzex-instagram-action{appearance:none;display:inline-flex!important;align-items:center;justify-content:center;position:relative!important;width:40px;height:40px;padding:8px;margin:0;border:0;border-radius:9px;background:transparent;color:inherit;opacity:1!important;visibility:visible!important;pointer-events:auto!important;cursor:pointer;line-height:1;touch-action:manipulation}
+[data-ryzex-instagram-inline="1"]>.ryzex-instagram-action:hover{background:#88888812}
+[data-ryzex-instagram-inline="1"]>.ryzex-instagram-action:focus-visible{outline:2px solid currentColor;outline-offset:-3px}
+.ryzex-instagram-action>svg{display:block;width:24px;height:24px;fill:currentColor;stroke:none;pointer-events:none}

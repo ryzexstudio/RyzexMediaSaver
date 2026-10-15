@@ -1,0 +1,96 @@
+{
+  "manifest_version": 3,
+  "name": "Ryzex Media Saver",
+  "short_name": "Ryzex Saver",
+  "version": "0.1.0",
+  "description": "Download TikTok, Instagram and X media with Ryzex Media Saver. Available in six languages.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "downloads",
+    "storage",
+    "alarms",
+    "offscreen"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.tiktok.com/*",
+        "*://*.x.com/*",
+        "*://*.twitter.com/*"
+      ],
+      "js": [
+        "locales/en.js",
+        "locales/tr.js",
+        "locales/es.js",
+        "locales/az.js",
+        "locales/fr.js",
+        "locales/ru.js",
+        "locales/legacy-tr.js",
+        "i18n.js",
+        "shared.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "locales/en.js",
+        "locales/tr.js",
+        "locales/es.js",
+        "locales/az.js",
+        "locales/fr.js",
+        "locales/ru.js",
+        "locales/legacy-tr.js",
+        "i18n.js",
+        "dash-core.js",
+        "shared.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://ryzex-social-media-gateway.ryzexstudioofficial.workers.dev/*",
+    "https://ryzex-social-media-api.onrender.com/*",
+    "https://*.tiktok.com/*",
+    "https://*.tiktokcdn.com/*",
+    "https://*.tiktokcdn-us.com/*",
+    "https://*.tiktokcdn-eu.com/*",
+    "https://*.byteoversea.com/*",
+    "https://*.ibytedtos.com/*",
+    "https://*.ibyteimg.com/*",
+    "https://*.byteimg.com/*",
+    "https://*.muscdn.com/*",
+    "https://*.musical.ly/*",
+    "https://*.cdninstagram.com/*",
+    "https://*.fbcdn.net/*",
+    "https://*.twimg.com/*",
+    "https://*.tikwm.com/*",
+    "https://*.ahm7xmakki.com/*"
+  ],
+  "version_name": "0.1.0",
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; object-src 'none'; connect-src 'self' https://ryzex-social-media-gateway.ryzexstudioofficial.workers.dev https://ryzex-social-media-api.onrender.com https://*.tiktok.com https://*.tiktokcdn.com https://*.tiktokcdn-us.com https://*.tiktokcdn-eu.com https://*.byteoversea.com https://*.ibytedtos.com https://*.ibyteimg.com https://*.byteimg.com https://*.muscdn.com https://*.musical.ly https://*.cdninstagram.com https://*.fbcdn.net https://*.twimg.com https://*.tikwm.com https://*.ahm7xmakki.com; base-uri 'none'; frame-ancestors 'none'"
+  },
+  "minimum_chrome_version": "116"
+}
